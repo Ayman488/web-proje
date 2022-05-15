@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <link rel="stylesheet" href="iletişim.css">
+    <nav class="navbar navbar-dark bg-primary">
+        <a type="button" class="btn btn-light" href="ana_sayfa.html">Ana Sayfa</a>
+    </nav>
+    <div class="container">
+        <div class="text-center m-5 bg-primary text-white">
+            <h3><b>İletişim adresi</b></h3>
+        </div>
+        <div class="card mb-3 ">
+            <div class="row no-gutters">
+                <div class="col">
+                    <div class="card-body">
+                        <h5 class="card-title">Benimle iletişime geçin</h5>
+                        <p class="card-text">Eğer benimle iletişime geçmek istersiniz mesaj gönderebilirsini.</p>
+                        
+
+                        <form method="post">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">e-posta adresi</label>
+                              <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email">
+                              <small id="emailHelp" class="form-text text-muted">E-postanızı asla başkalarıyla paylaşmayacağız.</small>
+                            </div>
+                            <div class="form-group">
+                              <label>mesaj bırakın</label>
+                              <textarea class="form-control" id="msj"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Gönder</button>
+                          </form>
+
+
+                    </div>
+                </div>
+                <div class="col">
+                    <img class="card-img h-100" src="https://www.jisrturk.com/wp-content/uploads/2019/04/%D9%87%D8%B0%D9%87-%D8%AA%D8%A3%D8%AB%D9%8A%D8%B1%D8%A7%D8%AA-%D9%88%D8%B3%D8%A7%D8%A6%D9%84-%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A-%D8%B9%D9%84%D9%89-%D8%B5%D8%AD%D8%AA%D9%83-%D8%A7%D9%84%D8%B9%D9%82%D9%84%D9%8A%D8%A9.jpg" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        var btn = document.getElementById('submit');
+        btn.addEventListener('click', function(e){
+            e.preventDEfault()
+            var email = document.getElementById('Email').value;
+            var msj = document.getElementById('msj').value;
+            var body = 'email :' +email+ '<br/> subject :' + subject+ '<br/> mesaj : ' + msj; 
+            Email.send({
+                Host :"stmp.gmail.com",
+                Username :  "leo.asad1212@gmail.com",
+                Password : "ayman482001",
+                To: "leo.asad1212@gmail.com",
+                From : email, 
+                subject : "Yeni email",
+                Body : body
+            }).then(
+                message => alert(message)
+            );
+        })
+    </script>
+
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
